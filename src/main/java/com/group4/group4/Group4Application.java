@@ -15,8 +15,13 @@ public class Group4Application {
 
 		List<String> users = new ArrayList<>();
         String user1 = "Erik";
+		String user2 = "Lars";
         System.out.println(UserMangement.addUser(users, user1));
-		
+		System.out.println(UserMangement.addUser(users, user2));
+		UserMangement.removeUser(users, user2);
+		System.out.println(users);
 	}
+
+	
 
 }
