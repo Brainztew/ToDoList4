@@ -7,6 +7,18 @@ import java.util.GregorianCalendar;
 
 public class DeadlineTests {
     @Test
+    public void isDateNullTest() {
+        assertFalse(Deadline.isDateNull(null));
+        assertTrue(Deadline.isDateNull(new GregorianCalendar()));
+    }
+
+    @Test
+    public void isDatePassedTest() {
+        assertFalse(Deadline.isDatePassed(new GregorianCalendar(2023, 12, 2)));
+        assertTrue(Deadline.isDatePassed(new GregorianCalendar(2023, 10, 1)));
+    }
+
+    @Test
     public void isDeadlinePassedTest() {
         // Deadline-datum.
         GregorianCalendar deadlineDate = new GregorianCalendar(2023, 12, 2);
