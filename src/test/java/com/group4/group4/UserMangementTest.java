@@ -39,4 +39,14 @@ public class UserMangementTest
         assertFalse(userRemoved);
         assertFalse(lists.contains(user));
     }
+
+    @Test
+    public void markToDoAsCompletedTest() {
+        List<String> tasks = new ArrayList<>();
+        tasks.add("Uppgift som ska markeras som klar");
+        boolean taskCompleted = UserMangement.markToDoAsCompleted(tasks, "Uppgift som ska markeras som klar");
+        
+        assertTrue(taskCompleted);
+        assertFalse(tasks.contains("Uppgift som ska markeras som klar")); 
+}
 }
