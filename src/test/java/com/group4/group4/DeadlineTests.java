@@ -6,31 +6,35 @@ import org.junit.jupiter.api.Test;
 import java.util.GregorianCalendar;
 
 public class DeadlineTests {
-    @Test
-    public void isDateNullTest() {
-        assertFalse(Deadline.isDateNull(null));
-        assertTrue(Deadline.isDateNull(new GregorianCalendar()));
-    }
 
     @Test
     public void isDatePassedTest() {
-        assertFalse(Deadline.isDatePassed(new GregorianCalendar(2023, 12, 2)));
-        assertTrue(Deadline.isDatePassed(new GregorianCalendar(2023, 10, 1)));
+        // Datum innan dagens datum. Datumet är passerat och ska resultera i true.
+        assertTrue(Deadline.isDatePassed(new GregorianCalendar(2023, 10, 28)));
+        // Datum efter dagens datum. Datum är inte passerat och ska resultear i false.
+        assertFalse(Deadline.isDatePassed(new GregorianCalendar(2023, 11, 5)));
+    }
+
+    @Test
+    public void isDateTodayTest() {
+        // Datum innan dagens datum. Ska resultera i false.
+        assertFalse(Deadline.isDateToday(new GregorianCalendar(2023, 10, 28)));
+        // Dagens datum. Ska resultera i true.
+        assertTrue(Deadline.isDateToday(new GregorianCalendar()));
+        // Datum efter dagens datum. Ska resultera i false.
+        assertFalse(Deadline.isDateToday(new GregorianCalendar(2023, 11, 5)));
     }
 
     @Test
     public void isDeadlinePassedTest() {
         // Deadline-datum.
-        GregorianCalendar deadlineDate = new GregorianCalendar(2023, 12, 2);
-        // Datum just nu.
-        GregorianCalendar nowDate = new GregorianCalendar();
-        // Datum innan deadline.
-        GregorianCalendar beforeDate = new GregorianCalendar(2023, 11, 30);
-        // Datum efter deadline.
-        GregorianCalendar afterDate = new GregorianCalendar(2023, 12, 4);
+        GregorianCalendar deadlineDate = new GregorianCalendar(2023, 11, 2);
 
-        assertTrue(Deadline.isDeadlinePassed(deadlineDate, nowDate));
-        assertTrue(Deadline.isDeadlinePassed(deadlineDate, beforeDate));
-        assertFalse(Deadline.isDeadlinePassed(deadlineDate, afterDate));
+        // Dagens datum är innan deadline och resulterar därför i false.
+        assertFalse(Deadline.isDeadlinePassed(deadlineDate, new GregorianCalendar()));
+        // Datumet är innan deadline och resulterar därför i false.
+        assertFalse(Deadline.isDeadlinePassed(deadlineDate, new GregorianCalendar(2023, 10, 30)));
+        // Datumet är efter deadline och resulterar därför i true.
+        assertTrue(Deadline.isDeadlinePassed(deadlineDate, new GregorianCalendar(2023, 11, 4)));
     }
 }
