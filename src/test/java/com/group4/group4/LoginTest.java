@@ -79,7 +79,7 @@ public class LoginTest {
     @Test
     public void testTaskComplete() {
         // Skapar en task för testning
-        Task task = new Task("Complete this task");
+        Task task = new Task("Innan klarmarkering");
 
         // Verifierar och kontrollerar att uppgiften
         // är initialt INTE klar - FALSE
