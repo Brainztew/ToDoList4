@@ -14,7 +14,7 @@ public class UserMangementTest
     public void addUserTest() {
 
         List<String> lists = new ArrayList<>();
-        // List<String> listsFake = new ArrayList<>();
+        List<String> listsFake = new ArrayList<>();
 
         String user = "Johan";
         boolean userAdded = lists.add(user);
@@ -23,6 +23,20 @@ public class UserMangementTest
         assertTrue(updatedList.contains(user));
         
         assertTrue(userAdded);
-        assertTrue(lists.contains(user));
+        assertTrue(listsFake.contains(user));
+    }
+    @Test
+    public void removeUserTest() {
+
+        List<String> lists = new ArrayList<>();
+
+        String user = "Johan";
+        boolean userRemoved = lists.remove(user);
+        //boolean userRemoved = lists.add(user);
+        List<String> updatedList = UserMangement.removeUser(lists, user);
+        assertFalse(updatedList.contains(user));
+        
+        assertFalse(userRemoved);
+        assertFalse(lists.contains(user));
     }
 }
