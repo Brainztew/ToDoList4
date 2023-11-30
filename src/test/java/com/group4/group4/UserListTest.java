@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+
 public class UserListTest {
 
-    public static UserList users = new UserList("User", null);
 
     @Test
     public void checkUserTest() {
@@ -18,8 +18,7 @@ public class UserListTest {
         kalle.add(1, "Tvätta");
         kalle.add(2, "Damma");
 
-        users.addUser("Kalle", kalle);
-        users.addUser("Anna", kalle);
+
 
         assertEquals("Städa", kalle.get(0));
         assertEquals("Tvätta", kalle.get(1));
