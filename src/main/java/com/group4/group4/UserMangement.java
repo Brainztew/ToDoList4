@@ -14,14 +14,5 @@ public class UserMangement {
         return list;
     }
 
-    public static boolean markToDoAsCompleted(List<String> list, String completedTask) {
-        if (list.contains(completedTask)) {
-            list.remove(completedTask);
-            return true; 
-        } else {
-            return false;
-        }
-    }
- 
 
-}
+    }

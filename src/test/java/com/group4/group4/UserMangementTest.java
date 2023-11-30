@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+
 public class UserMangementTest 
 {
     @Test
@@ -23,7 +24,7 @@ public class UserMangementTest
         assertTrue(updatedList.contains(user));
         
         assertTrue(userAdded);
-        assertTrue(listsFake.contains(user));
+        assertTrue(lists.contains(user));
     }
     @Test
     public void removeUserTest() {
@@ -40,13 +41,5 @@ public class UserMangementTest
         assertFalse(lists.contains(user));
     }
 
-    @Test
-    public void markToDoAsCompletedTest() {
-        List<String> tasks = new ArrayList<>();
-        tasks.add("Uppgift som ska markeras som klar");
-        boolean taskCompleted = UserMangement.markToDoAsCompleted(tasks, "Uppgift som ska markeras som klar");
-        
-        assertTrue(taskCompleted);
-        assertFalse(tasks.contains("Uppgift som ska markeras som klar")); 
-}
+
 }

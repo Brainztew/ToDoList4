@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,20 +77,5 @@ public class LoginTest {
         assertFalse(isValidUser("testUser", "wrongPassword"));
     }
 
-    // Task
-    @Test
-    public void testTaskComplete() {
-        // Skapar en task för testning
-        Task task = new Task("Innan klarmarkering");
 
-        // Verifierar och kontrollerar att uppgiften
-        // är initialt INTE klar - FALSE
-        assertFalse(task.isComplete());
-
-        // Markerar uppgiften som KLAR
-        task.markComplete();
-
-        // Kontrollerar att uppgiften är NU markerad som klar - TRUE
-        assertTrue(task.isComplete());
-    }
 }
