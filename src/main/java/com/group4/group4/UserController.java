@@ -14,8 +14,7 @@ import org.springframework.ui.Model;
 @Controller
 public class UserController {
 
-    private List<User> userList = new ArrayList<>();
-    private List<User> userDetails = new ArrayList<>();
+    private static List<User> userList = new ArrayList<>();
 
     @GetMapping("/addUser")
     public String addUserForm(Model model) {
@@ -31,5 +30,19 @@ public class UserController {
         return "redirect:/addUser";
     }
 
+    @GetMapping("/todo/{firstName}")
+    public String todoDetails(@PathVariable String firstName, Model model) {
+        User user = findUserFirstName(firstName);
+        model.addAttribute("user", user);
+        return "todo"; 
+    }
 
+    public static User findUserFirstName(String firstName) {
+        for (User user : userList) {
+            if (user.getFirstName().equals(firstName)) {
+                return user;
+            }
+        }
+        return null;
+    }
 }

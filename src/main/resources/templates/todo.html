@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.thymeleaf.org"></html>
-<html lang="en">
+<html xmlns="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo Details</title>
+
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="script.js" defer></script> 
 </head>
 <body>
-    <H1>ToDo!</H1>
+    <h1>Todo Details</h1>
+
+    <p>Förnamn: <span th:text="${user.firstName}"></span></p>
+
 </body>
-
-<footer>
-
-<div class=owners>
-    <p>©ToDoOrNotTodo applikation skapat av Grupp 4</p>
-   </div>
-<div class=groupnames>
-<p>Roberto, Cihan, Emil, Chawan, Dennis</p>
-</div>
-
-</footer>
 </html>

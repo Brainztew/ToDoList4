@@ -23,7 +23,10 @@
     <div>
         <p>Namn</p>
         <ul>
-            <li th:each="user : ${userList}" th:text="${user.firstName}"></li>
+            <li th:each="user : ${userList}">
+                <a th:href="@{'/todo/' + ${user.firstName}}" th:text="${user.firstName}"></a>
+
+            </li>
         </ul>
     </div>
 
