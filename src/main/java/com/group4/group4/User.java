@@ -1,24 +1,13 @@
 package com.group4.group4;
 
 public class User {
-    private String firstname;
-    public User(){
-        
-    }
-  
+    private String firstName;
 
-    public User(String firstname) {
-        setName(firstname);
-        
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return firstname;
-    }
-
-    private void setName(String firstname) {
-        this.firstname = firstname;
-    }
-
-    
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    } 
 }

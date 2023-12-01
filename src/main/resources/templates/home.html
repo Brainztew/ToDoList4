@@ -12,14 +12,23 @@
 </head>
 <body>
     <h1>ToDoOrNotToDo</h1>
+
+    <!-- <form th:action="@{/addUser}" method="post" th:object="${user}">
+        <div>
+            <label for="firstName">Förnamn</label>
+            <input type="text" id="firstName" name="firstName" th:field="*{firstName}">
+        </div> 
+        <button type="submit">Lägg till användare</button>
+    </form> -->
+    
     <form th:action="@{/addUser}" method="post" th:object="${user}">
+        
         <div>
             <label for="firstName">Förnamn</label>
             <input type="text" id="firstName" name="firstName" th:field="*{firstName}">
         </div> 
         <button type="submit">Lägg till användare</button>
     </form>
-
     
 </body>
 
