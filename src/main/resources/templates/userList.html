@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" lang="en">
+<head>
+</head>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+<body>
+    <h1>User List</h1>
+
+    <ul>
+        <li th:each="user : ${userList}" th:text="${user.firstName}"></li>
+    </ul>
+
+</body>
+</html>
