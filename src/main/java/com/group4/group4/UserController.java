@@ -10,11 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-
 @Controller
 public class UserController {
 
     private static List<User> userList = new ArrayList<>();
+
+    static{
+        userList.add(new User("Bengt"));
+        userList.add(new User("Gösta"));
+        userList.add(new User("Johan"));
+        userList.add(new User("Erik"));
+    }
 
     @GetMapping("/addUser")
     public String addUserForm(Model model) {
@@ -44,5 +50,19 @@ public class UserController {
             }
         }
         return null;
+    }
+
+    // Ta bort
+    @GetMapping("/remove-user/{firstName}")
+    public String removeMember(@PathVariable String firstName) {
+        userList.remove(findUserFirstName(firstName));
+        return "redirect:/addUser";
+    }
+
+    // Rensa
+    @GetMapping("/clear-user/{firstName}")
+    public String clearMember(@PathVariable String firstName) {
+        userList.clear();
+        return "redirect:/addUser";
     }
 }
