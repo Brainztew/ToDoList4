@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.thymeleaf.org"></html>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/addUser}" method="post" th:object="${user}">
+        
+        <div>
+            <label for="firstName">Förnamn</label>
+            <input type="text" id="firstName" name="firstName" th:field="*{firstName}">
+        </div> 
+        <button type="submit">Lägg till användare</button>
+    </form>
+    
+</body>
+</html>
+
+
+
