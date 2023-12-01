@@ -1,6 +1,8 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: aquamarine;
+    margin: 0;
+    padding: 0;
 
 }
 h1{
@@ -12,5 +14,27 @@ h1{
 }
 
 p{
-    color: red;
+    color: black;
+}
+
+footer{
+    background-color: antiquewhite;
+    padding: 2rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin: 0;
+    color: rgb(28, 181, 208);
+    height: 1rem;
+}
+
+
+
+.owners {
+    float: left;
+}
+
+.groupnames {
+    float: right;
+   
 }

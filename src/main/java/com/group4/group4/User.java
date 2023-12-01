@@ -1,27 +1,24 @@
 package com.group4.group4;
 
 public class User {
-    private String name;
-    private String password;
+    private String firstname;
+    public User(){
+        
+    }
+  
 
-    public User(String name, String password) {
-        setName(name);
-        setPassword(password);
+    public User(String firstname) {
+        setName(firstname);
+        
     }
 
     public String getName() {
-        return name;
+        return firstname;
     }
 
-    public String getPassword() {
-        return password;
+    private void setName(String firstname) {
+        this.firstname = firstname;
     }
 
-    private void setName(String name) {
-        this.name = name;
-    }
-
-    private void setPassword(String password) {
-        this.password = password;
-    }
+    
 }
