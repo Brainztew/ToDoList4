@@ -19,6 +19,15 @@
         </div> 
         <button type="submit">Lägg till användare</button>
     </form>
+
+    <div>
+        <p>Namn</p>
+        <ul>
+            <li th:each="user : ${userList}" th:text="${user.firstName}"></li>
+        </ul>
+    </div>
+
+
     
 </body>
 </html>
