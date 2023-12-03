@@ -12,20 +12,21 @@
 </head>
 <body>
     <h1>!ToDoOrNotDoTo!</h1>
-    <form th:action="@{/addUser}" method="post" th:object="${user}">
-        
+    <body>
+        <form th:action="@{/addUser}" method="post" th:object="${user}">
+            
+            <div>
+                <label for="firstName">Förnamn</label>
+                <input type="text" id="firstName" name="firstName" th:field="*{firstName}">
+            </div> 
+            <button type="submit">Lägg till användare</button>
+        </form>
+    
         <div>
-            <label for="firstName">Förnamn</label>
-            <input type="text" id="firstName" name="firstName" th:field="*{firstName}">
-        </div> 
-        <button type="submit">Lägg till användare</button>
-    </form>
-
-    <div>
         <p>Namn</p>
         <ul>
             <li th:each="user : ${userList}">
-                <a th:href="@{/todo/ ${user.firstName}}" th:text="${user.firstName}"></a>
+                <a th:href="@{'/userList/' + ${user.firstName}}" th:text="${user.firstName}"></a>
                 <button> <a th:href="@{'/remove-user/' + ${user.firstName}}">Ta bort</a> </button> 
             </li>
         </ul>
@@ -36,7 +37,7 @@
 
     <a th:href="@{/home}">Home</a>
     <a th:href="@{/addUserForm}">Add Firstname</a>
-    <a th:href="@{/todo/{firstName}}">ToDo List</a>
+<!--     <a th:href="@{/todo/{firstName}}">ToDo List</a> -->
     
 </body>
 <footer>

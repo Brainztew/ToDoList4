@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo Details</title>
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css" />
 
     <script src="script.js" defer></script> 
 </head>
 <body>
     <h1>Todo Details</h1>
-    <form th:action="@{/tasks/addTask}" method="post">
+    
+    <p>Förnamn: <span th:text="${user.firstName}"></span></p>
+    <p>Lista: <span th:text="${listName}"></span></p>
+ <form th:action="@{/tasks/addTask}" method="post">
        
             <label for="description">Todo:</label>
             <input type="text" id="description" name="description" placeholder="Skriv din uppgift här">   
@@ -31,7 +34,7 @@
      <a href="/addUser">Home</a>
 
     
-    
+
     <footer>
         <div class="owners">
             <p>©ToDoOrNotTodo applikation</p>

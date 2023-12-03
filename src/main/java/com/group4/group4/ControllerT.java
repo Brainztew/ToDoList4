@@ -11,9 +11,5 @@ public class ControllerT {
     String getHome(){
         return "home";
     }
-        @GetMapping("/todo")
-    String gettodo(){
-        return "todo";
-    }
 
 }
