@@ -6,6 +6,10 @@ public class Task {
 
     private String description;
     private boolean isComplete;
+    
+    public Task() {
+        
+    }
 
     public Task(String description) {
         this.description = description;
