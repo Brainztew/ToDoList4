@@ -11,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>!ToDoOrNotDoTo!</h1>
     <form th:action="@{/addUser}" method="post" th:object="${user}">
         
         <div>
@@ -38,4 +39,14 @@
     <a th:href="@{/todo/{firstName}}">ToDo List</a>
     
 </body>
+<footer>
+    <div class=owners>
+        <p>©ToDoOrNotTodo applikation</p>
+       </div>
+   <div class=groupnames>
+    <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
+    </div>
+
+   
+</footer>
 </html>
