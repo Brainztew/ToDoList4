@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <html xmlns="http://www.thymeleaf.org"></html>
-
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>!ToDoOrNotDoTo!</h1>
@@ -28,6 +27,8 @@
             <li th:each="user : ${userList}">
                 <a th:href="@{'/userList/' + ${user.firstName}}" th:text="${user.firstName}"></a>
                 <button> <a th:href="@{'/remove-user/' + ${user.firstName}}">Ta bort</a> </button> 
+                <button> <a th:href="@{'/change-user/' + ${user.firstName}}">Ändra</a> </button>
+
             </li>
         </ul>
     </div>
@@ -35,19 +36,21 @@
     <a th:href="@{'/clear-user/' + ${user.firstName}}">Clear</a>
     <br>
 
-    <a th:href="@{/home}">Home</a>
-    <a th:href="@{/addUserForm}">Add Firstname</a>
-<!--     <a th:href="@{/todo/{firstName}}">ToDo List</a> -->
-    
-</body>
-<footer>
-    <div class=owners>
-        <p>©ToDoOrNotTodo applikation</p>
-       </div>
-   <div class=groupnames>
-    <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
-    </div>
+    <a href="/addUser">Home</a>
 
-   
-</footer>
+    <!-- <a th:href="@{/home}">Home</a> -->
+    <!-- <a th:href="@{/addUserForm}">Add Firstname</a> -->
+    <!-- <a th:href="@{/todo/{firstName}}">ToDo List</a> -->
+
+    <footer>
+        <div class=owners>
+            <p>©ToDoOrNotTodo applikation</p>
+        </div>
+    <div class=groupnames>
+        <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
+        </div>
+
+    
+    </footer>
+</body>
 </html>

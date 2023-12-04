@@ -30,6 +30,8 @@ public class UserController {
         return "redirect:/addUser";
     }
 
+
+
 /*     @GetMapping("/todo/{firstName}")
     public String todoDetails(@PathVariable String firstName, Model model) {
         User user = findUserFirstName(firstName);
@@ -48,7 +50,9 @@ public class UserController {
     public String addList(@PathVariable String firstName, @RequestParam String newListName, Model model) {
         User user = findUserFirstName(firstName);
         ArrayList<String> newList = new ArrayList<>();
+
         ListInfo newListInfo = new ListInfo(newListName, newList);
+
         user.getLists().add(newListInfo);
         model.addAttribute("user", user);
         return "userList";
@@ -58,6 +62,7 @@ public class UserController {
     public String todoPage(@PathVariable String firstName, @PathVariable int listIndex, Model model) {
         User user = findUserFirstName(firstName);
         ListInfo listInfo = user.getLists().get(listIndex);
+        
         model.addAttribute("listName", listInfo.getName());
         model.addAttribute("user", user);
         return "todo";
@@ -86,5 +91,23 @@ public class UserController {
         return null;
     }
 
+    // Ändra
+    @GetMapping("/change-user/{firstName}")
+    public String changeUserForm(@PathVariable String firstName, Model model) {
+        User changeUser = findUserFirstName(firstName);
+        model.addAttribute("userChange", changeUser);
+        return "changeUserForm";
+    }
 
+    @PostMapping("/change-user")
+    public String changeUser (@ModelAttribute("userChange") User changed, Model model) {
+        User exist = findUserFirstName(changed.getFirstName());
+
+        if (exist != null) {
+            exist.setFirstName(changed.getNewFirstName());
+            userList.remove(exist);
+            userList.add(exist);
+        } 
+            return "redirect:/addUser";
+    }
 }
