@@ -28,7 +28,12 @@
 
         <div>
             <label for="newFirstName">Användare</label>
+
             <input type="text" name="newFirstName" id="newFirstName" th:field="*{newFirstName}">
+
+            <!-- <input type="text" name="firstName" id="firstName" th:field="*{newFirstName}"> -->
+            <!-- <input type="text" id="newFirstName" name="newFirstName" th:value="${user.newFirstName}"> -->
+
         </div>
 
         <button type="submit">Spara ändring</button>
@@ -37,5 +42,14 @@
 
     <a href="/addUser">Tillbaka</a>
 
+        <footer>
+        <div class=owners>
+            <p>©ToDoOrNotTodo applikation</p>
+        </div>
+
+        <div class=groupnames>
+            <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
+        </div>
+    </footer>
 </body>
 </html>

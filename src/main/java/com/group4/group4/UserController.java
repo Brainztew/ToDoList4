@@ -102,10 +102,11 @@ public class UserController {
         User exist = findUserFirstName(changed.getFirstName());
 
         if (exist != null) {
-            exist.setFirstName(changed.getNewFirstName());
+            exist.setNewFirstName(changed.getNewFirstName());
             // userList.remove(exist);
             userList.add(exist);
         } 
+            model.addAttribute("user", exist);      // uppdaterad user skickas till model 
             return "redirect:/addUser";
     }
 }

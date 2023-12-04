@@ -26,13 +26,18 @@
         <ul>
             <li th:each="user : ${userList}">
                 <a th:href="@{'/userList/' + ${user.firstName}}" th:text="${user.firstName}"></a>
-                
+                <!-- <p>Ändrad Name: <span th:text="${user.setNewFirstName}"></span></p> -->
+
                 <!-- <a th:href="@{'/userList/' + ${user.newFirstName}}" th:text="${user.newFirstName}"></a> -->
                 <!-- <p th:text="${user.setNewFirstName}">Ändrad namn: </p> -->
 
                 <button> <a th:href="@{'/remove-user/' + ${user.firstName}}">Ta bort</a> </button> 
+                
+                <!-- <input type="text" id="firstName" name="firstName" th:value="${user.newFirstName}"> -->
                 <button> <a th:href="@{'/change-user/' + ${user.firstName}}">Ändra</a> </button>
 
+
+                <p>test: <span th:text="${user.getNewFirstName}"></span></p>
             </li>
         </ul>
     </div>
