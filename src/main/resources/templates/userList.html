@@ -16,13 +16,16 @@
 
     <ul th:each="list, listIndex : ${user.lists}">
         <li>
+        <div style="display: flex; align-items: center;">
             <a th:href="@{'/todo/' + ${user.firstName} + '/' + ${listIndex.index}}">
                 <p th:text="${list.name}"></p>
             </a>
-            <ul>
-                <li th:each="list: ${list.list}" th:text="${list}"></li>
-            </ul>
+            <button style="margin-left: 10px;">
+                <a th:href="@{'/remove-list/' + ${user.firstName} + '/' + ${listIndex.index}}">Ta bort</a>
+            </button>
+        </div>
         </li>
+
     </ul>
     <a href="/addUser">Hem</a>
 
