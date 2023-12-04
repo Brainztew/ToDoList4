@@ -1,4 +1,4 @@
-package com.group4.group4;
+/* package com.group4.group4;
 
 
 
@@ -18,7 +18,7 @@ public class TaskController {
 
     private List<String> taskList = new ArrayList<>(); 
     
-    @GetMapping("/todo")
+   @GetMapping("/todo")
     public String getTodoPage(Model model) {
          model.addAttribute("tasks", taskList);
          return "todo";
@@ -39,8 +39,9 @@ public class TaskController {
         return "redirect:/todo"; 
     }
 
-    
-}
 
+   
+} */
+ 
 
 

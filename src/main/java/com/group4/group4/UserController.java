@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -14,13 +15,6 @@ import org.springframework.ui.Model;
 public class UserController {
 
     private static List<User> userList = new ArrayList<>();
-
-    static{
-        userList.add(new User("Bengt"));
-        userList.add(new User("Gösta"));
-        userList.add(new User("Johan"));
-        userList.add(new User("Erik"));
-    }
 
     @GetMapping("/addUser")
     public String addUserForm(Model model) {
@@ -36,23 +30,40 @@ public class UserController {
         return "redirect:/addUser";
     }
 
-    @GetMapping("/todo/{firstName}")
+/*     @GetMapping("/todo/{firstName}")
     public String todoDetails(@PathVariable String firstName, Model model) {
         User user = findUserFirstName(firstName);
         model.addAttribute("user", user);
         return "todo"; 
+    } */
+
+    @GetMapping("/userList/{firstName}")
+    public String todo(@PathVariable String firstName, Model model) {
+        User user = findUserFirstName(firstName);
+        model.addAttribute("user", user);
+        return "userList"; 
     }
 
-    public static User findUserFirstName(String firstName) {
-        for (User user : userList) {
-            if (user.getFirstName().equals(firstName)) {
-                return user;
-            }
-        }
-        return null;
+    @PostMapping("/addList/{firstName}")
+    public String addList(@PathVariable String firstName, @RequestParam String newListName, Model model) {
+        User user = findUserFirstName(firstName);
+        ArrayList<String> newList = new ArrayList<>();
+        ListInfo newListInfo = new ListInfo(newListName, newList);
+        user.getLists().add(newListInfo);
+        model.addAttribute("user", user);
+        return "userList";
     }
 
-    // Ta bort
+    @GetMapping("/todo/{firstName}/{listIndex}")
+    public String todoPage(@PathVariable String firstName, @PathVariable int listIndex, Model model) {
+        User user = findUserFirstName(firstName);
+        ListInfo listInfo = user.getLists().get(listIndex);
+        model.addAttribute("listName", listInfo.getName());
+        model.addAttribute("user", user);
+        return "todo";
+    }
+
+        // Ta bort
     @GetMapping("/remove-user/{firstName}")
     public String removeMember(@PathVariable String firstName) {
         userList.remove(findUserFirstName(firstName));
@@ -65,4 +76,15 @@ public class UserController {
         userList.clear();
         return "redirect:/addUser";
     }
+
+    public static User findUserFirstName(String firstName) {
+        for (User user : userList) {
+            if (user.getFirstName().equals(firstName)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+
 }
