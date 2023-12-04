@@ -30,8 +30,6 @@ public class UserController {
         return "redirect:/addUser";
     }
 
-
-
 /*     @GetMapping("/todo/{firstName}")
     public String todoDetails(@PathVariable String firstName, Model model) {
         User user = findUserFirstName(firstName);
@@ -105,7 +103,7 @@ public class UserController {
 
         if (exist != null) {
             exist.setFirstName(changed.getNewFirstName());
-            userList.remove(exist);
+            // userList.remove(exist);
             userList.add(exist);
         } 
             return "redirect:/addUser";

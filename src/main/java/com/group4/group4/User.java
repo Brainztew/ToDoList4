@@ -33,12 +33,7 @@ public class User {
     }
 
     public void setNewFirstName(String newFirstName) {
-        // this.newFirstName = newFirstName;
-        // setFirstName(newFirstName);
-        this.firstName = newFirstName;
-
-        // setNewFirstName(newFirstName);
+        this.newFirstName = newFirstName;
+        // this.firstName = newFirstName;
     }
-
-
 }
