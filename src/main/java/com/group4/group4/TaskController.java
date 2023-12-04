@@ -1,6 +1,4 @@
-/* package com.group4.group4;
-
-
+package com.group4.group4;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,32 +14,31 @@ import java.util.List;
 @RequestMapping("/tasks")
 public class TaskController {
 
-    private List<String> taskList = new ArrayList<>(); 
-    
-   @GetMapping("/todo")
+    private List<String> taskList = new ArrayList<>();
+
+    @GetMapping("/todo")
     public String getTodoPage(Model model) {
-         model.addAttribute("tasks", taskList);
-         return "todo";
+        User user = new User();
+        model.addAttribute("user", user);
+        model.addAttribute("tasks", taskList);
+
+        return "todo";
     }
 
     @PostMapping("/addTask")
-    public String addTask(@RequestParam("description") String description,@RequestParam("deadline") String deadline,Model model) {
+    public String addTask(@RequestParam("description") String description, @RequestParam("deadline") String deadline, Model model) {
         String taskWithDeadline = description + " - Deadline: " + deadline;
         taskList.add(taskWithDeadline);
         model.addAttribute("tasks", taskList);
         return "redirect:/tasks/todo";
     }
 
-
     @PostMapping("/removeTask")
     public String removeTask(@RequestParam("taskId") int taskId) {
-        taskList.remove(taskId); //tar bort specifk task
-        return "redirect:/todo"; 
+        taskList.remove(taskId); // Tar bort specifik uppgift
+        return "redirect:/tasks/todo";
     }
+}
 
-
-   
-} */
- 
 
 

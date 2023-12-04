@@ -7,6 +7,7 @@ public class User {
     private String firstName;
     private List<ListInfo> lists;
 
+
     public User() {
         this.lists = new ArrayList<>();
     }
