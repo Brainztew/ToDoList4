@@ -5,6 +5,7 @@ import java.util.List;
 
 public class User {
     private String firstName;
+    private String newFirstName;
     private List<ListInfo> lists;
 
     public User() {
@@ -27,4 +28,12 @@ public class User {
         this.lists = lists;
     }
 
+    public String getNewFirstName() {
+        return newFirstName;
+    }
+
+    public void setNewFirstName(String newFirstName) {
+        this.newFirstName = newFirstName;
+        // this.firstName = newFirstName;
+    }
 }

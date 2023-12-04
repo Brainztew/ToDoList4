@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <html xmlns="http://www.thymeleaf.org"></html>
-
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>!ToDoOrNotDoTo!</h1>
-    <body>
-        <form th:action="@{/addUser}" method="post" th:object="${user}">
+
+    <form th:action="@{/addUser}" method="post" th:object="${user}">
             
             <div>
                 <label for="firstName">Förnamn</label>
                 <input type="text" id="firstName" name="firstName" th:field="*{firstName}">
             </div> 
             <button type="submit">Lägg till användare</button>
-        </form>
+    </form>
     
-        <div>
+    <div>
         <p>Namn</p>
         <ul>
             <li th:each="user : ${userList}">
                 <a th:href="@{'/userList/' + ${user.firstName}}" th:text="${user.firstName}"></a>
+                <!-- <p>Ändrad Name: <span th:text="${user.setNewFirstName}"></span></p> -->
+
+                <!-- <a th:href="@{'/userList/' + ${user.newFirstName}}" th:text="${user.newFirstName}"></a> -->
+                <!-- <p th:text="${user.setNewFirstName}">Ändrad namn: </p> -->
+
                 <button> <a th:href="@{'/remove-user/' + ${user.firstName}}">Ta bort</a> </button> 
+                
+                <!-- <input type="text" id="firstName" name="firstName" th:value="${user.newFirstName}"> -->
+                <button> <a th:href="@{'/change-user/' + ${user.firstName}}">Ändra</a> </button>
+
+
+                <p>test: <span th:text="${user.getNewFirstName}"></span></p>
             </li>
         </ul>
     </div>
@@ -35,19 +45,20 @@
     <a th:href="@{'/clear-user/' + ${user.firstName}}">Clear</a>
     <br>
 
-    <a th:href="@{/home}">Home</a>
-    <a th:href="@{/addUserForm}">Add Firstname</a>
-<!--     <a th:href="@{/todo/{firstName}}">ToDo List</a> -->
-    
-</body>
-<footer>
-    <div class=owners>
-        <p>©ToDoOrNotTodo applikation</p>
-       </div>
-   <div class=groupnames>
-    <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
-    </div>
+    <a href="/addUser">Home</a>
 
-   
-</footer>
+    <!-- <a th:href="@{/home}">Home</a> -->
+    <!-- <a th:href="@{/addUserForm}">Add Firstname</a> -->
+    <!-- <a th:href="@{/todo/{firstName}}">ToDo List</a> -->
+
+    <footer>
+        <div class=owners>
+            <p>©ToDoOrNotTodo applikation</p>
+        </div>
+
+        <div class=groupnames>
+            <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
+        </div>
+    </footer>
+</body>
 </html>
