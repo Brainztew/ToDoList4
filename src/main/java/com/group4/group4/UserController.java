@@ -19,18 +19,18 @@ public class UserController {
         return userList;
     }
 
-    @GetMapping("/")
+    @GetMapping("/addUser")
     public String addUserForm(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("userList", userList);
         return "addUserForm";
     }
 
-    @PostMapping("/")
+    @PostMapping("/addUser")
     public String addUser(@ModelAttribute("user") User user, Model model) {
         userList.add(user);
         model.addAttribute("userList", userList);
-        return "redirect:/addUserForm";
+        return "redirect:/addUser";
     }
 
     @GetMapping("/todo/{firstName}/{listIndex}")
