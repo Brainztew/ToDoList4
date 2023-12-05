@@ -1,11 +1,16 @@
 console.log("Cihan testar");
 
 // Dagens datum.
-let todayDate = new Date().toLocaleDateString();
+let todayDate = new Date();
+// Gårdagens datum.
+let yesterdayDate = new Date();
+yesterdayDate.setDate(todayDate.getDate() - 1);
+yesterdayDate = yesterdayDate.toLocaleDateString();
+todayDate = todayDate.toLocaleDateString();
 // Input-fältet där man anger deadline.
 let deadlineInput = document.getElementById("deadline");
 // Vi kommer bara kunna välja dagens datum eller senare som deadline.
-deadlineInput.setAttribute("min", todayDate);
+deadlineInput.setAttribute("min", yesterdayDate);
 
 // Vi hämtar varje task.
 let tasks = document.getElementsByClassName("task");
