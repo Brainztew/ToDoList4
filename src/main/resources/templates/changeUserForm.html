@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns="http://www.thymeleaf.org"></html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <html xmlns="http://www.thymeleaf.org"></html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/style.css" />
-    <script src="script.js" defer></script>
+        <link rel="stylesheet" href="/style.css" />
+        <script src="script.js" defer></script>
 
-    <title>Document</title>
-</head>
-<body>
-    <h1>Ändra användare</h1>
-<!-- 
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Ändra användare</h1>
+        <main>
+            <!-- 
     <form th:action="@{/change-user}" method="post" th:object="${userChange}">
 
         <div>
@@ -24,32 +25,30 @@
 
     </form> -->
 
-    <form th:action="@{/change-user}" method="post" th:object="${userChange}">
+            <form th:action="@{/change-user}" method="post" th:object="${userChange}">
+                <div>
+                    <label for="newFirstName">Användare</label>
 
-        <div>
-            <label for="newFirstName">Användare</label>
+                    <input type="text" name="newFirstName" id="newFirstName" th:field="*{newFirstName}" />
 
-            <input type="text" name="newFirstName" id="newFirstName" th:field="*{newFirstName}">
+                    <!-- <input type="text" name="firstName" id="firstName" th:field="*{newFirstName}"> -->
+                    <!-- <input type="text" id="newFirstName" name="newFirstName" th:value="${user.newFirstName}"> -->
+                </div>
 
-            <!-- <input type="text" name="firstName" id="firstName" th:field="*{newFirstName}"> -->
-            <!-- <input type="text" id="newFirstName" name="newFirstName" th:value="${user.newFirstName}"> -->
+                <button type="submit">Spara ändring</button>
+            </form>
 
-        </div>
+            <a href="/addUser">Tillbaka</a>
 
-        <button type="submit">Spara ändring</button>
+            <footer>
+                <div class="owners">
+                    <p>©ToDoOrNotTodo applikation</p>
+                </div>
 
-    </form>
-
-    <a href="/addUser">Tillbaka</a>
-
-        <footer>
-        <div class=owners>
-            <p>©ToDoOrNotTodo applikation</p>
-        </div>
-
-        <div class=groupnames>
-            <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
-        </div>
-    </footer>
-</body>
+                <div class="groupnames">
+                    <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
+                </div>
+            </footer>
+        </main>
+    </body>
 </html>
