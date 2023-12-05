@@ -85,7 +85,7 @@ public class UserController {
             // userList.remove(exist);
             userList.add(exist);
         } 
-            model.addAttribute("user", exist);      // uppdaterad user skickas till model 
+            model.addAttribute("user", exist);      
             return "redirect:/addUser";
     }
 }
