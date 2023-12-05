@@ -9,23 +9,25 @@
         <h1>Användares listor!</h1>
         <main>
             <form th:action="@{'/addList/' + ${user.firstName}}" method="post">
-                <input type="text" name="newListName" placeholder="Skriv listnamn" required />
-                <input type="submit" value="Lägg till lista" />
-            </form>
-
-            <ul th:each="list, listIndex : ${user.lists}">
-                <li>
-                    <div style="display: flex; align-items: center">
-                        <a th:href="@{'/todo/' + ${user.firstName} + '/' + ${listIndex.index}}">
-                            <p th:text="${list.name}"></p>
-                        </a>
-                        <button style="margin-left: 30px">
-                            <a th:href="@{'/remove-list/' + ${user.firstName} + '/' + ${listIndex.index}}">Ta bort</a>
-                        </button>
-                    </div>
-                </li>
-            </ul>
-            <a href="/addUser">Hem</a>
+            <input type="text" name="newListName" placeholder="Skriv listnamn" required>
+            <input type="submit" value="Lägg till lista">
+        </form>
+    
+        <ul th:each="list, listIndex : ${user.lists}">
+            <li>
+            <div style="display: flex; align-items: center;">
+                <a th:href="@{'/todo/' + ${user.firstName} + '/' + ${listIndex.index}}">
+                    <p th:text="${list.name}"></p>
+                </a>
+                <button style="margin-left: 30px;">
+                    <a th:href="@{'/remove-list/' + ${user.firstName} + '/' + ${listIndex.index}}">Ta bort</a>
+                </button>
+            </div>
+            </li>
+    
+        </ul>
+        <a href="/addUser">Home</a>
+    
         </main>
         <footer>
             <div class="owners">

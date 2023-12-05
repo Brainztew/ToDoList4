@@ -19,18 +19,18 @@ public class UserController {
         return userList;
     }
 
-    @GetMapping("/addUser")
+    @GetMapping("/")
     public String addUserForm(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("userList", userList);
         return "addUserForm";
     }
 
-    @PostMapping("/addUser")
+    @PostMapping("/")
     public String addUser(@ModelAttribute("user") User user, Model model) {
         userList.add(user);
         model.addAttribute("userList", userList);
-        return "redirect:/addUser";
+        return "redirect:/addUserForm";
     }
 
     @GetMapping("/todo/{firstName}/{listIndex}")
@@ -40,6 +40,8 @@ public class UserController {
         
         model.addAttribute("listName", listInfo.getName());
         model.addAttribute("user", user);
+        model.addAttribute("tasks", listInfo.getTasks());
+
         return "todo";
     }
 
