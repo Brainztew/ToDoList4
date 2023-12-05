@@ -25,6 +25,7 @@ public class UserMangementTest
         
         assertTrue(userAdded);
         assertTrue(lists.contains(user));
+        assertFalse(listsFake.contains(user));
     }
     @Test
     public void removeUserTest() {
