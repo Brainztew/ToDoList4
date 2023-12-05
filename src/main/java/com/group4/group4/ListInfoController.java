@@ -24,12 +24,12 @@ public class ListInfoController {
     @PostMapping("/addList/{firstName}")
     public String addList(@PathVariable String firstName, @RequestParam String newListName, Model model) {
         User user = UserController.findUserFirstName(firstName);
-        ArrayList<String> newList = new ArrayList<>();
-        ListInfo newListInfo = new ListInfo(newListName, newList);
+        ListInfo newListInfo = new ListInfo(newListName, new ArrayList<>());
         user.getLists().add(newListInfo);
         model.addAttribute("user", user);
         return "userList";
     }
+
 
     @GetMapping("/remove-list/{firstName}/{listIndex}")
     public String removeList(@PathVariable String firstName, @PathVariable int listIndex, Model model) {

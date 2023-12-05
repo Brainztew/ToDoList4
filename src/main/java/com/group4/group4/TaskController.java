@@ -3,6 +3,7 @@ package com.group4.group4;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,19 +26,26 @@ public class TaskController {
         return "todo";
     }
 
-    @PostMapping("/addTask")
-    public String addTask(@RequestParam("description") String description, @RequestParam("deadline") String deadline, Model model) {
-        String taskWithDeadline = description + " - Deadline: " + deadline;
-        taskList.add(taskWithDeadline);
-        model.addAttribute("tasks", taskList);
-        return "redirect:/tasks/todo";
+    @PostMapping("/addTask/{firstName}/{listIndex}")
+    public String addTask(@PathVariable String firstName, @PathVariable int listIndex, @RequestParam String description, @RequestParam String deadline, Model model) {
+        User user = UserController.findUserFirstName(firstName);
+        ListInfo listInfo = user.getLists().get(listIndex);
+        String taskDetails =  "Att göra: " +  description + ", Deadline: " + deadline;
+        listInfo.getTasks().add(taskDetails); 
+        
+        model.addAttribute("user", user);
+        model.addAttribute("listName", listInfo.getName());
+        model.addAttribute("tasks", listInfo.getTasks());
+        return "redirect:/todo/{firstName}/{listIndex}";
     }
-
     @PostMapping("/removeTask")
-    public String removeTask(@RequestParam("taskId") int taskId) {
-        taskList.remove(taskId); // Tar bort specifik uppgift
-        return "redirect:/tasks/todo";
-    }
+    public String removeTask(@RequestParam("taskId") int taskId, Model model) {
+        if (taskId >= 0 && taskId < taskList.size()) {
+            taskList.remove(taskId); 
+         }
+        model.addAttribute("tasks", taskList);
+         return "redirect:/tasks/todo";
+}
 }
 
 

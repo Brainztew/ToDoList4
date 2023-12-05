@@ -3,11 +3,11 @@ import java.util.List;
 
 public class ListInfo {
     private String name;
-    private List<String> list;
+    private List<String> tasks;
 
-    public ListInfo(String name, List<String> list) {
+    public ListInfo(String name, List<String> tasks) {
         this.name = name;
-        this.list = list;
+        this.tasks = tasks;
     }
 
     public String getName() {
@@ -16,11 +16,11 @@ public class ListInfo {
     public void setName(String name) {
         this.name = name;
     }
-    public List<String> getList() {
-        return list;
+    public List<String> getTasks() {
+        return tasks;
     }
-    public void setList(List<String> list) {
-        this.list = list;
+    public void setTasks(List<String> tasks) {
+        this.tasks = tasks;
     }
 
     

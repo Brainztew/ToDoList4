@@ -15,7 +15,7 @@
             <form th:action="@{/addUser}" method="post" th:object="${user}">
                 <div>
                     <label for="firstName">Förnamn</label>
-                    <input type="text" id="firstName" name="firstName" th:field="*{firstName}" />
+                    <input type="text" id="firstName" name="firstName"required  th:field="*{firstName}" />
                 </div>
                 <button type="submit">Lägg till användare</button>
             </form>
@@ -35,7 +35,7 @@
                         <!-- <input type="text" id="firstName" name="firstName" th:value="${user.newFirstName}"> -->
                         <button><a th:href="@{'/change-user/' + ${user.firstName}}">Ändra</a></button>
 
-                        <p>test: <span th:text="${user.getNewFirstName}"></span></p>
+                        <p> <span th:text="${user.getNewFirstName}"></span></p>
                     </li>
                 </ul>
             </div>
