@@ -37,25 +37,6 @@ public class UserController {
         return "todo"; 
     } */
 
-    @GetMapping("/userList/{firstName}")
-    public String todo(@PathVariable String firstName, Model model) {
-        User user = findUserFirstName(firstName);
-        model.addAttribute("user", user);
-        return "userList"; 
-    }
-
-    @PostMapping("/addList/{firstName}")
-    public String addList(@PathVariable String firstName, @RequestParam String newListName, Model model) {
-        User user = findUserFirstName(firstName);
-        ArrayList<String> newList = new ArrayList<>();
-
-        ListInfo newListInfo = new ListInfo(newListName, newList);
-
-        user.getLists().add(newListInfo);
-        model.addAttribute("user", user);
-        return "userList";
-    }
-
     @GetMapping("/todo/{firstName}/{listIndex}")
     public String todoPage(@PathVariable String firstName, @PathVariable int listIndex, Model model) {
         User user = findUserFirstName(firstName);
