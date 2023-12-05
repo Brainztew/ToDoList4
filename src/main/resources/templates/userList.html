@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html xmlns="http://www.thymeleaf.org" lang="en">
-<head>
-</head>
+    <head> </head>
 
-<link rel="stylesheet" href="/style.css" />
-<script src="script.js" defer></script>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="script.js" defer></script>
 
-<body>
-    <h1>Användares listor!</h1>
+    <body>
+        <h1>Användares listor!</h1>
+        <main>
+            <form th:action="@{'/addList/' + ${user.firstName}}" method="post">
+                <input type="text" name="newListName" placeholder="Skriv listnamn" required />
+                <input type="submit" value="Lägg till lista" />
+            </form>
 
-    <form th:action="@{'/addList/' + ${user.firstName}}" method="post">
-        <input type="text" name="newListName" placeholder="Skriv listnamn" required>
-        <input type="submit" value="Lägg till lista">
-    </form>
-
-    <ul th:each="list, listIndex : ${user.lists}">
-        <li>
-        <div style="display: flex; align-items: center;">
-            <a th:href="@{'/todo/' + ${user.firstName} + '/' + ${listIndex.index}}">
-                <p th:text="${list.name}"></p>
-            </a>
-            <button style="margin-left: 30px;">
-                <a th:href="@{'/remove-list/' + ${user.firstName} + '/' + ${listIndex.index}}">Ta bort</a>
-            </button>
-        </div>
-        </li>
-
-    </ul>
-    <a href="/addUser">Hem</a>
-
-
-</body>
-<footer>
-    <div class=owners>
-        <p>©ToDoOrNotTodo applikation</p>
-       </div>
-   <div class=groupnames>
-    <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
-    </div>
-
-   
-</footer>
+            <ul th:each="list, listIndex : ${user.lists}">
+                <li>
+                    <div style="display: flex; align-items: center">
+                        <a th:href="@{'/todo/' + ${user.firstName} + '/' + ${listIndex.index}}">
+                            <p th:text="${list.name}"></p>
+                        </a>
+                        <button style="margin-left: 30px">
+                            <a th:href="@{'/remove-list/' + ${user.firstName} + '/' + ${listIndex.index}}">Ta bort</a>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <a href="/addUser">Hem</a>
+        </main>
+        <footer>
+            <div class="owners">
+                <p>©ToDoOrNotTodo applikation</p>
+            </div>
+            <div class="groupnames">
+                <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
+            </div>
+        </footer>
+    </body>
 </html>
