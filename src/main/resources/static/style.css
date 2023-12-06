@@ -9,20 +9,56 @@ h1 {
     color: rgb(28, 181, 208);
     text-align: center;
     font-size: 4rem;
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 5rem;
     background-color: antiquewhite;
+    border-bottom: 1px solid rgb(246, 215, 179);
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+h3 {
+    margin-top: 0px;
 }
 
 main {
+    border: 1px solid rgb(246, 215, 179);
+    border-radius: 0.5rem;
     overflow-y: scroll;
     height: 750px;
     background-color: antiquewhite;
     margin: auto;
     width: 50%;
     padding: 2rem 2rem;
-    border-radius: 1rem;
     margin-bottom: 10rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: antiquewhite;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e3d6be;
+}
+
+.task-item {
+    background-color: #e3d6be;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.done-button {
+    float: left;
+    width: 50px;
+    height: 50px;
 }
 
 p {
@@ -30,6 +66,7 @@ p {
 }
 
 footer {
+    border-top: 1px solid rgb(246, 215, 179);
     background-color: antiquewhite;
     color: rgb(28, 181, 208);
     position: fixed;

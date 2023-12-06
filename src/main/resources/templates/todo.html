@@ -12,35 +12,33 @@
     <body>
         <h1>Todo Details</h1>
         <main>
-            <p>Förnamn: <span th:text="${user.firstName}"></span></p>
-    <p>Lista: <span th:text="${listName}"></span></p>
-    <form th:action="@{'/tasks/addTask/' + ${user.firstName} + '/' + ${listIndex}}" method="post">
-        <input type="hidden" id="firstName" name="firstName" th:value="${user.firstName}">
-        <input type="hidden" id="listIndex" name="listIndex" th:value="${listIndex}">
-        
-        <label for="description">Todo:</label>
-        <input type="text" id="description" name="description" placeholder="Skriv din uppgift här" required>   
-        <label for="deadline">Deadline:</label>
-        <input type="date" id="deadline" name="deadline" required>
-        
-        <button type="submit">Lägg till ny uppgift</button>
-    </form>
+            <h2>Förnamn: <span th:text="${user.firstName}"></span></h2>
+            <h3>Lista: <span th:text="${listName}"></span></h3>
+            <form th:action="@{'/tasks/addTask/' + ${user.firstName} + '/' + ${listIndex}}" method="post">
+                <input type="hidden" id="firstName" name="firstName" th:value="${user.firstName}" />
+                <input type="hidden" id="listIndex" name="listIndex" th:value="${listIndex}" />
 
-    <div class="tasks" th:each="task, taskStat : ${tasks}">
-        <div class="task-item">
-            <p class="task-description" th:text="${task}"></p>
-    
-            <form th:action="@{/tasks/removeTask}" method="post">
-                <input type="hidden" name="taskId" th:value="${taskStat.index}" />
-                <button type="submit">Ta bort</button>
+                <label for="description">Todo:</label>
+                <input type="text" id="description" name="description" placeholder="Skriv din uppgift här" required />
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" required />
+
+                <button type="submit">Lägg till ny uppgift</button>
             </form>
-        </div>
-    </div>
-    
 
+            <div class="tasks" th:each="task, taskStat : ${tasks}">
+                <div class="task-item">
+                    <input class="done-button" type="checkbox" />
+                    <p class="task-description" th:text="${task}"></p>
 
-     <a href="/addUser">Home</a>
+                    <form th:action="@{/tasks/removeTask}" method="post">
+                        <input type="hidden" name="taskId" th:value="${taskStat.index}" />
+                        <button type="submit">Ta bort</button>
+                    </form>
+                </div>
+            </div>
 
+            <a href="/addUser">Home</a>
         </main>
         <footer>
             <div class="owners">
