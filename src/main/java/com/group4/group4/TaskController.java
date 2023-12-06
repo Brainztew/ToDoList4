@@ -38,14 +38,17 @@ public class TaskController {
         model.addAttribute("tasks", listInfo.getTasks());
         return "redirect:/todo/{firstName}/{listIndex}";
     }
-    @PostMapping("/removeTask")
-    public String removeTask(@RequestParam("taskId") int taskId, Model model) {
-        if (taskId >= 0 && taskId < taskList.size()) {
-            taskList.remove(taskId); 
-         }
-        model.addAttribute("tasks", taskList);
-         return "redirect:/tasks/todo";
-}
+    @PostMapping("/removeTask/{firstName}/{listIndex}/{taskIndex}")
+    public String removeTask(@PathVariable String firstName, @PathVariable int listIndex, @PathVariable int taskIndex, Model model) {
+        User user = UserController.findUserFirstName(firstName);
+        ListInfo listInfo = user.getLists().get(listIndex);
+        
+        if (taskIndex >= 0 && taskIndex < listInfo.getTasks().size()) {
+            listInfo.getTasks().remove(taskIndex);
+        }
+        model.addAttribute("user", user);
+        return "redirect:/todo/{firstName}/{listIndex}"; 
+    }
 }
 
 

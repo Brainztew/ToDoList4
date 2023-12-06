@@ -10,7 +10,7 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <h1>!ToDoOrNotDoTo!</h1>
+        <h1>!ToDoOrNotDoTo?</h1>
         <main>
             <form th:action="@{/addUser}" method="post" th:object="${user}">
                 <div>
@@ -21,7 +21,7 @@
             </form>
 
             <div>
-                <p>Namn</p>
+                <p>Användare</p>
                 <ul>
                     <li th:each="user : ${userList}">
                         <a th:href="@{'/userList/' + ${user.firstName}}" th:text="${user.firstName}"></a>
@@ -40,10 +40,10 @@
                 </ul>
             </div>
 
-            <a th:href="@{'/clear-user/' + ${user.firstName}}">Clear</a>
+            <a th:href="@{'/clear-user/' + ${user.firstName}}">[Clear]</a>
             <br />
 
-            <a href="/addUser">Home</a>
+            <a href="/addUser">[Home]</a>
 
             <!-- <a th:href="@{/home}">Home</a> -->
             <!-- <a th:href="@{/addUserForm}">Add Firstname</a> -->

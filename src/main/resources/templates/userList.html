@@ -6,7 +6,7 @@
     <script src="script.js" defer></script>
 
     <body>
-        <h1>Användares listor!</h1>
+        <h1>!ToDoOrNotDoTo Lista!</h1>
         <main>
             <form th:action="@{'/addList/' + ${user.firstName}}" method="post">
             <input type="text" name="newListName" placeholder="Skriv listnamn" required>
@@ -26,7 +26,7 @@
             </li>
     
         </ul>
-        <a href="/addUser">Home</a>
+        <a href="/addUser">{Home}</a>
     
         </main>
         <footer>
