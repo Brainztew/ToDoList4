@@ -77,16 +77,5 @@ public class UserController {
         return "redirect:/addUser";
     }
 
-/*     @PostMapping("/change-user")
-    public String changeUser (@ModelAttribute("userChange") User changed, Model model) {
-        User exist = findUserFirstName(changed.getFirstName());
 
-        if (exist != null) {
-            exist.setNewFirstName(changed.getNewFirstName());
-            // userList.remove(exist);
-            userList.add(exist);
-        } 
-            model.addAttribute("user", exist);      
-            return "redirect:/addUser";
-    } */
 }
