@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -69,14 +70,15 @@ public class UserController {
     }
 
     // Ändra
-    @GetMapping("/change-user/{firstName}")
-    public String changeUserForm(@PathVariable String firstName, Model model) {
+    @PostMapping("/change-user/{firstName}")
+    public String changeUserForm(@PathVariable String firstName, @ModelAttribute User user, Model model) {
         User changeUser = findUserFirstName(firstName);
+        changeUser.setFirstName(user.getFirstName());
         model.addAttribute("userChange", changeUser);
-        return "changeUserForm";
+        return "redirect:/addUser";
     }
 
-    @PostMapping("/change-user")
+/*     @PostMapping("/change-user")
     public String changeUser (@ModelAttribute("userChange") User changed, Model model) {
         User exist = findUserFirstName(changed.getFirstName());
 
@@ -87,5 +89,5 @@ public class UserController {
         } 
             model.addAttribute("user", exist);      
             return "redirect:/addUser";
-    }
+    } */
 }

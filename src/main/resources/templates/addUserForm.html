@@ -33,7 +33,13 @@
                         <button><a th:href="@{'/remove-user/' + ${user.firstName}}">Ta bort</a></button>
 
                         <!-- <input type="text" id="firstName" name="firstName" th:value="${user.newFirstName}"> -->
-                        <button><a th:href="@{'/change-user/' + ${user.firstName}}">Ändra</a></button>
+                        <form th:action="@{'/change-user/' + ${user.firstName}}" method="post" th:object="${user}">
+                            <div>
+                                <label for="firstName">edit</label>
+                                <input type="text" id="firstName" name="firstName" required th:field="*{firstName}" />
+                            </div>
+                            <button type="submit">ändra användare!</button>
+                        </form>
 
                         <p> <span th:text="${user.getNewFirstName}"></span></p>
                     </li>
