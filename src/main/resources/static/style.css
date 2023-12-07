@@ -14,6 +14,32 @@ h1 {
     background-color: rgb(215, 250, 233);
 }
 
+h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    background-color: rgb(216, 245, 231);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    border-radius: 0.5rem;
+}
+
 main {
     overflow-y: scroll;
     height: 750px;
@@ -21,8 +47,36 @@ main {
     margin: auto;
     width: 50%;
     padding: 2rem 2rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     margin-bottom: 10rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(186, 240, 222);
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(216, 245, 231);
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(216, 245, 231);
+}
+
+.task-item {
+    background-color: rgb(216, 245, 231);
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.1rem;
+    margin-bottom: 1rem;
 }
 
 .done-button {

@@ -5,23 +5,22 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script>
     </head>
     <body>
         <h1>!ToDoOrNotDoTo?</h1>
         <main>
+            <h2>Lägg till användare</h2>
             <form th:action="@{/addUser}" method="post" th:object="${user}">
                 <div>
-                    <label for="firstName">Förnamn</label>
-                    <input type="text" id="firstName" name="firstName"required  th:field="*{firstName}" />
+                    <input type="text" id="firstName" name="firstName" required th:field="*{firstName}" placeholder="Förnamn" />
                 </div>
                 <button type="submit">Lägg till användare</button>
             </form>
 
             <div>
-                <p>Användare</p>
+                <h3>Användare</h3>
                 <ul>
                     <li th:each="user : ${userList}">
                         <a th:href="@{'/userList/' + ${user.firstName}}" th:text="${user.firstName}"></a>
@@ -35,15 +34,15 @@
                         <!-- <input type="text" id="firstName" name="firstName" th:value="${user.newFirstName}"> -->
                         <button><a th:href="@{'/change-user/' + ${user.firstName}}">Ändra</a></button>
 
-                        <p> <span th:text="${user.getNewFirstName}"></span></p>
+                        <p><span th:text="${user.getNewFirstName}"></span></p>
                     </li>
                 </ul>
             </div>
 
-            <a th:href="@{'/clear-user/' + ${user.firstName}}">[Clear]</a>
+            <button><a th:href="@{'/clear-user/' + ${user.firstName}}">Clear</a></button>
             <br />
 
-            <a href="/addUser">[Home]</a>
+            <button><a href="/addUser">Home</a></button>
 
             <!-- <a th:href="@{/home}">Home</a> -->
             <!-- <a th:href="@{/addUserForm}">Add Firstname</a> -->
@@ -53,7 +52,6 @@
             <div class="owners">
                 <p>©ToDoOrNotTodo applikation</p>
             </div>
-
             <div class="groupnames">
                 <p>Roberto, Cihan, Emil, Chawan, Dennis</p>
             </div>
