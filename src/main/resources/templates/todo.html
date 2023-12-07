@@ -11,8 +11,8 @@
     <body>
         <h1>Todos</h1>
         <main>
-            <p>Förnamn: <span th:text="${user.firstName}"></span></p>
-            <p>Lista: <span th:text="${listName}"></span></p>
+            <h2>Förnamn: <span th:text="${user.firstName}"></span></h2>
+            <h3>Lista: <span th:text="${listName}"></span></h3>
 
             <form th:action="@{'/tasks/addTask/' + ${user.firstName} + '/' + ${listIndex}}" method="post">
                 <input type="hidden" id="firstName" name="firstName" th:value="${user.firstName}" />
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <a href="/addUser">{Home}</a>
+            <button><a href="/addUser">Home</a></button>
         </main>
         <footer>
             <div class="owners">
