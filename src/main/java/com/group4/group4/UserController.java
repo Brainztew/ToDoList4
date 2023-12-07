@@ -55,7 +55,7 @@ public class UserController {
 
     // Rensa
     @GetMapping("/clear-user/{firstName}")
-    public String clearMember(@PathVariable String firstName) {
+    public static String clearMember(@PathVariable String firstName) {
         userList.clear();
         return "redirect:/addUser";
     }

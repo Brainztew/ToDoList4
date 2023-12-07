@@ -48,6 +48,33 @@ public class UserControllerTest {
         assertFalse(UserController.getUserList().contains(userToRemove));
     }
 
+     @Test
+    public void testClearMember() {
+       
+        User userToClear1 = new User();
+        User userToClear2 = new User();
+        User userToClear3 = new User();
+
+        
+        userToClear1.setFirstName("userToClear1");
+        userToClear2.setFirstName("userToClear2");
+        userToClear2.setFirstName("userToClear3");
+        
+
+        UserController.getUserList().add(userToClear1);
+        UserController.getUserList().add(userToClear2);
+        UserController.getUserList().add(userToClear3);
+        UserController.clearMember("userToClear");
+        
+        
+        assertFalse(UserController.getUserList().contains(userToClear1));
+        assertFalse(UserController.getUserList().contains(userToClear2));
+        assertFalse(UserController.getUserList().contains(userToClear3));
+        assertTrue(UserController.getUserList().isEmpty());
+
+
+    }
+
     public class UserTest {
         private String firstName;
         private List<ListInfo> lists;
