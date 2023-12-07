@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,5 +39,15 @@ public class ListInfoController {
         model.addAttribute("user", user);
         return "redirect:/userList/{firstName}";
     }
+    @PostMapping("/change-list/{firstName}/{listIndex}")
+public String changeListForm(@PathVariable String firstName, @PathVariable int listIndex,
+    @RequestParam String newListName, Model model) {
+        User user = UserController.findUserFirstName(firstName);
+        ListInfo listinfo = user.getLists().get(listIndex);
+        listinfo.setName(newListName);
 
+        model.addAttribute("userChange", user);
+        model.addAttribute("getList", listinfo.getName());
+        return "redirect:/userList/{firstName}";
+    }
 }

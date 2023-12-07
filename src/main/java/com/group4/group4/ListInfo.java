@@ -9,7 +9,7 @@ public class ListInfo {
         this.name = name;
         this.tasks = tasks;
     }
-
+    
     public String getName() {
         return name;
     }

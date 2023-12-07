@@ -24,6 +24,13 @@
                             <a th:href="@{'/remove-list/' + ${user.firstName} + '/' + ${listIndex.index}}">Ta bort</a>
                         </button>
                     </div>
+                    <form th:action="@{'/change-list/' + ${user.firstName} + '/' + ${listIndex.index}}" method="post" th:object="${list}">
+                        <div>
+                            <label for="newList">edit</label>
+                            <input type="text" id="newList" name="newListName" required th:value="${newListName}" />
+                        </div>
+                        <button type="submit">ändra Lista!</button>
+                    </form>
                 </li>
             </ul>
             <button><a href="/addUser">Home</a></button>
